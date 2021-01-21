@@ -9,8 +9,8 @@ This shell script is designed to run on *Arch* and *Debian* based linux distros.
 #### Dependencies:
 This shell script requires the following packages: *gpg* and *wipe*. If these packages are not installed the shell script will attempt to install them. Otherwise please install them youself.
 
-### Warning:
-Due to the way SSDs are designed a secure wipe can't be achieved. I'm currently trying to see if there is a workaround, however in the meantime keep that in mind.
+#### Warning:
+Due to the way SSDs are designed, a secure wipe can't be achieved. I'm currently trying to see if there is a workaround. However, in the meantime keep that in mind.
 
 #### Usage:
 1. download the secure-encrypt.sh file
