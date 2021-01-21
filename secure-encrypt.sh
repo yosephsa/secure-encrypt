@@ -9,8 +9,8 @@
 # Usage - ./secure-encrypt.sh [filename <optional>]
 # 
 # Notes on usage:
-# if filename does not end with .gpg extension then it will attempt to encrypt it. 
-# However if it does end with .gpg extension then it will attempt to decrypt it
+#	if filename does not end with .gpg extension then it will attempt to encrypt it. 
+#	However if it does end with .gpg extension then it will attempt to decrypt it
 
 does_package_exist () { 
 	package=$1
