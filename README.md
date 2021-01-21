@@ -1,5 +1,11 @@
 # secure-encrypt
-A tool that encrypts a file and securely deletes the source file, or decrypts a file encrypted with gpg semmytric encryption. It's dependencies are gpg and wipe.
+A tool that encrypts a file and securely deletes the source file, or decrypts a file encrypted with gpg semmytric encryption.
+
+**Supported OS**
+This shell script is designed to run on Arch and Debian based linux distros.
+
+**Dependencies**
+This shell script requires the following packages. gpg and wipe. If these packages are not installed the shell script will attempt to install them.
 
 **Usage:**
 1. download the secure-encrypt.sh file
