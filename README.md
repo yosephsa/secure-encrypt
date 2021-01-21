@@ -10,7 +10,7 @@ This shell script is designed to run on *Arch* and *Debian* based linux distros.
 This shell script requires the following packages: *gpg* and *wipe*. If these packages are not installed the shell script will attempt to install them. Otherwise please install them youself.
 
 #### Warning:
-Due to the way SSDs are designed, a complete secure wipe on an SSD **IS NOT POSSIBLE**. For more information about the topic of SSDs and secure deletion here is an informative paper. https://www.cs.auckland.ac.nz/~pgut001/pubs/secure_del.html. Under the ***Even Further Epilogue*** is an explanation to why a secure wipe is not possible* on an SSD.
+Due to the way SSDs are designed, a complete secure wipe on an SSD **is not possible**. For more information about the topic of SSDs and secure deletion here is an informative paper. https://www.cs.auckland.ac.nz/~pgut001/pubs/secure_del.html. Under the *Even Further Epilogue* is an explanation to why a secure wipe is not possible* on an SSD.
 
 #### Usage:
 1. download the secure-encrypt.sh file
