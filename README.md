@@ -3,11 +3,11 @@ A tool that encrypts a file (with gpg symmetric encryption) and securely deletes
 
 
 #### Supported OS:
-This shell script is designed to run on *Arch* and *Debian* based linux distros.
+This shell script is designed to run on *Arch* and *Debian* based linux distros. It should be able to run on other linux distros, however I have not tested it.
 
 
 #### Dependencies:
-This shell script requires the following packages: *gpg* and *wipe*. If these packages are not installed the shell script will attempt to install them.
+This shell script requires the following packages: *gpg* and *wipe*. If these packages are not installed the shell script will attempt to install them. Otherwise please install them youself.
 
 
 #### Usage:
