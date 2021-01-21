@@ -36,7 +36,7 @@ does_package_exist () {
 #Check if gpg installed correctly and is usable.
 #If so select the desired file and encrypt
 if does_package_exist gpg; then
-	if [ -e $1 ]; then #input is given, set to filename
+	if ! [ -z $1 ] && [ -e $1 ]; then #input is given, set to filename
 		filename=$1
 	else #Ask for a filename
 		read -e -p "Enter filepath / filename: " filename
@@ -45,12 +45,12 @@ if does_package_exist gpg; then
 		echo "The file/filepath you specified does not exist. Please double check that and try again."
 	else
 		#determine if we are encrypting or decrypting
-		if [ ${filename: -4} == ".gpg" ]; then #decrypting
+		if [[ ${filename: -4} == ".gpg" ]]; then #decrypting
 			echo "gpg extension detected. Attempting to decrypt it..."
 			gpg -o ${filename::-4} -d $filename
 			exit 0 #stop executing script to prevent secure deletion of encrypted input
 		else #encrypting
-			echo "Encrypting source file..."
+			echo "Encrypting source file ($filename)..."
 			gpg -c $filename
 			if ! [ -e "${filename}.gpg" ]; then
 				echo "Could not locate encrypted file. Skipping secure wipe of source file"
