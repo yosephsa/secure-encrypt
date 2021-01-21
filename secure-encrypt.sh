@@ -1,5 +1,16 @@
 #! /bin/bash
 
+# Author: Yoseph Alabdulwahab
+# Description: 	A tool to encrypt/decrypt a file and securely wipe the unencrypted source file from the drive.
+#				This tool was made to encrypt password manager exports so that the original export is retrievable.
+#				GPG encryption is used, as well as the wipe linux package.
+#
+# Usage - ./secure-encrypt.sh [filename <optional>]
+# 
+# Notes on usage:
+# if filename does not end with .gpg extension then it will attempt to encrypt it. 
+# However if it does end with .gpg extension then it will attempt to decrypt it
+
 does_package_exist () { 
 	package=$1
 	if ! which $package >/dev/null; then #gpg is not installed. Install it.
