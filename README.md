@@ -1,5 +1,5 @@
 # secure-encrypt
-A tool that encrypts a file and securely deletes the source file, or decrypts a file encrypted with gpg semmytric encryption.
+A tool that encrypts a file (with gpg symmetric encryption) and securely deletes the source file, or decrypts a file encrypted with gpg semmytric encryption.
 
 
 #### Supported OS:
