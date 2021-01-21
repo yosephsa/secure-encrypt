@@ -50,6 +50,7 @@ if does_package_exist gpg; then
 			gpg -o ${filename::-4} -d $filename
 			exit 0 #stop executing script to prevent secure deletion of encrypted input
 		else #encrypting
+			does_package_exist wipe #Prompt to install (if needed) wipe before we start encrypting
 			echo "Encrypting source file ($filename)..."
 			gpg -c $filename
 			if ! [ -e "${filename}.gpg" ]; then
