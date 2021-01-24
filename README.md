@@ -2,11 +2,15 @@
 A python tool to simplify the encryption and secure wiping of plaintext files as well as decrypting encrypted files.
 When encrypting with this tool, GnuPG AES-256 symmetric encryption is used. However when decrypting, this tool will decrypt any file encrypted with symmetricly with GnuPG.
 
+This script doesn't really do anything you can't do with the gpg commands or with a wiping tool. It is just meant to simply the process of encrypting and wiping sensitive files and allowing you to decrypt them. 
+The choice behind using gnupg is to allow the cnrypted file to be decrypted in the forseable future with any gnupg tool. That way even if you loose this tool, and can't find it online, you can still decrypt your files knowing that GnuPG will not dissapear anytime in the future. 
+
 #### Supported OS:
 This tool is designed to run on Windows and Linux. It should also work on macOS, however it has not been tested.
 
 #### Dependencies:
-This script requires the following packages/programs to be installed: *pip* and *gpg*. If these packages are not installed this tool may not work properly.
+1. Python https://www.python.org/
+2. GnuPG https://gnupg.org/
 
 #### Warning:
 Due to the way SSDs are designed, a proper secure wipe on an SSD **is not possible**. For more information about the topic of SSDs and secure deletion here is an informative paper. https://www.cs.auckland.ac.nz/~pgut001/pubs/secure_del.html. Under the *Even Further Epilogue* is an explanation to why a secure wipe is not possible* on an SSD.
