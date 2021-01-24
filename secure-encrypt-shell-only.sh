@@ -12,6 +12,8 @@
 #	if filename does not end with .gpg extension then it will attempt to encrypt it. 
 #	However if it does end with .gpg extension then it will attempt to decrypt it 
 
+echo "WARNING: A cross OS python version of this script is availble. Check it out (https://github.com/yoseph1998/secure-encrypt)."
+
 does_package_exist () { 
 	package=$1
 	if ! which $package >/dev/null; then #gpg is not installed. Install it.
