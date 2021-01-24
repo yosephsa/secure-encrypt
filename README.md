@@ -1,5 +1,6 @@
 # secure-encrypt
 A python tool to simplify the encryption and secure wiping of plaintext files as well as decrypting encrypted files.
+When encrypting with this tool, GnuPG AES-256 symmetric encryption is used. However when decrypting, this tool will decrypt any file encrypted with symmetricly with GnuPG.
 
 #### Supported OS:
 This tool is designed to run on Windows and Linux. It should also work on macOS, however it has not been tested.
