@@ -20,7 +20,7 @@ Due to the way SSDs are designed, a proper secure wipe on an SSD **is not possib
 
 #### Create Alias (on linux):
 1. Move the file to a desired location. I placed mine inside my home directory.
-2. run the following command alias `secenc="python ~/secure-encrypt.py"`
+2. run the following command `alias secenc="python ~/secure-encrypt.py"`
 3. Now you can following the steps under usgae, except instead of needing to be in the same directory and typing `python secure-encrypt.py` you can istead type `secenc ...`
 
 ---
