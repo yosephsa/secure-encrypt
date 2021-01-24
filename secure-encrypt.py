@@ -180,6 +180,14 @@ def decrypt(filepath):
 ## START OF SCRIPT ################################################################################
 ###################################################################################################
 
+#Make sure gpg is installed
+try:
+	gnupg.GPG()
+except:
+	print("ERROR: Could not start GPG")
+	print("Please make sure gpg is installed in the default location. For more info: https://gnupg.org/.")
+	exit(0)
+
 #Check if minimum arguments is provided
 if(len(sys.argv) < 2 or len(sys.argv) > 3):
 	print("ERROR: Invalid number of arguments. Please run the script as follows: ")
