@@ -10,6 +10,14 @@ Description:
 import sys, subprocess, getpass
 from os import path
 
+def install_pip():
+	try:
+		print("Installing pip... ")
+		subprocess.check_call(["curl", "https://bootstrap.pypa.io/get-pip.py", "-o", "get-pip.py"])
+	except:
+		print("Could not install pip. Please try installing python again http://python.org/")
+		exit(1)
+
 #Import packages that may need install.
 try:
 	import gnupg
@@ -18,15 +26,21 @@ except ImportError:
 	try:
 		subprocess.check_call([sys.executable, "-m", "pip", "install", "python-gnupg"])
 	except:
-		print("Cannot run pip. Please try installing python again http://python.org/")
-		exit(1)
+		install_pip()
+		subprocess.check_call([sys.executable, "-m", "pip", "install", "python-gnupg"])
+		
 	import gnupg
 	print("--------------------------------------------------------------------------------\n")
 try:
 	from secure_delete import secure_delete
 except ImportError:
 	print('Installing secure_delete...\n')
-	subprocess.check_call([sys.executable, "-m", "pip", "install", "secure_delete"])
+	try:
+		subprocess.check_call([sys.executable, "-m", "pip", "install", "secure_delete"])
+	except:
+		install_pip()
+		subprocess.check_call([sys.executable, "-m", "pip", "install", "secure_delete"])
+
 	import secure_delete
 	print("--------------------------------------------------------------------------------\n")
 
