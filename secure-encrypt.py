@@ -15,7 +15,11 @@ try:
 	import gnupg
 except ImportError:
 	print('Installing python-gnupg...\n')
-	subprocess.check_call([sys.executable, "-m", "pip", "install", "python-gnupg"])
+	try:
+		subprocess.check_call([sys.executable, "-m", "pip", "install", "python-gnupg"])
+	except:
+		print("Cannot run pip. Please try installing python again http://python.org/")
+		exit(1)
 	import gnupg
 	print("--------------------------------------------------------------------------------\n")
 try:
@@ -50,7 +54,7 @@ def encrypt_file(filepath, passwd):
 				armor=False, 
 				recipients=None)
 	except FileNotFoundError:
-		print(f"ERROR: Could not open file '{filepath}'. Make sure you entered the correct file")
+		print("ERROR: Could not open file '"+{filepath}+"'. Make sure you entered the correct file")
 		quit(1)
 
 # A method to decrypt a file using the provided password.
@@ -70,7 +74,7 @@ def decrypt_file(filepath, passwd):
 			filepath_o = filepath[:-4]
 			status = gpg.decrypt_file(file, passphrase=passwd, output=filepath_o)
 	except FileNotFoundError:
-		print(f"ERROR: Could not open file '{filepath}'. Make sure you entered the correct filepath")
+		print("ERROR: Could not open file '"+{filepath}+"'. Make sure you entered the correct filepath")
 		quit(1)
 
 ###################################################################################################
@@ -90,7 +94,7 @@ def validate_filepath(filepath, quit=False, debug=True):
 		return False
 	elif(not path.exists(filepath)):
 		if(debug):
-			print(f"ERROR! File '{filepath}' does not exist. Please double check and try again")
+			print("ERROR! File '"+{filepath}+"' does not exist. Please double check and try again")
 		if(quit):
 			exit(1) #Quit program
 		return False
@@ -122,7 +126,7 @@ def get_password(asktwice = False):
 #Print script usage
 def print_usage():
 	print("\n   Usage:")
-	print(f"      python {sys.argv[0]} <command> <filepath>")
+	print("      python {"+sys.argv[0]+"} <command> <filepath>")
 	print("      or `alias` <command> <filepath>")
 	print("\n   Commands:")
 	print("      encrypt | -e    # Encrypt file and wipe")
@@ -136,7 +140,7 @@ def wipe(filepath):
 	validate_filepath(filepath, quit=True)
 
 	#Give user warning on ssd and non standard filesystems
-	print(f"Secure wiping file {filepath} ...")
+	print("Secure wiping file {filepath} ...")
 	print("    WARNING: This only works on Windows/Linux on standard filesystems using a HDD. \
 FILES MAY STILL BE RECOVERABLE ON SSDs.")
 
@@ -153,7 +157,7 @@ def encrypt(filepath):
 	passwd = get_password(asktwice = True)
 
 	#Encrypt file
-	print(f"Encrypting file '{filepath}'.")
+	print("Encrypting file '" + filepath + "'")
 	status = encrypt_file(filepath, passwd)
 
 	#Check if succeded
@@ -173,7 +177,7 @@ def decrypt(filepath):
 	passwd = get_password()
 
 	#Decrypt file
-	print(f'Decrypting file ')
+	print("Decrypting file '" + filepath + "'")
 	decrypt_file(filepath, passwd)
 
 ###################################################################################################
